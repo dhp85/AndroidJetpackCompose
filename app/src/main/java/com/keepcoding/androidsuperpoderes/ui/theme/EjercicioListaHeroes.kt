@@ -22,13 +22,19 @@ import androidx.compose.ui.unit.dp
 import com.keepcoding.androidsuperpoderes.R
 
 @Composable
-fun HeroLisView() {
-val heroes = List(50) {
-    listOf("Goku", "Vegeta", "Freezer", "Magin Boo").random() }
+fun HeroLisView(modifier: Modifier = Modifier) {
+val heroes = listOf(
+        "Goku", "Vegeta", "Freezer", "Majin Boo", "Gohan", "Trunks", "Piccolo", "Krillin", "Yamcha",
+        "Tien", "Cell", "Broly", "Bardock", "Raditz", "Nappa", "Android 18", "Android 17", "Android 16",
+        "Beerus", "Whis", "Goten", "Champa", "Vados", "Zeno", "Hit", "Jiren", "Toppo", "Dyspo",
+        "Zamasu", "Goku Black", "Roshi", "Bulma", "Chi-Chi", "Pan", "Uub", "Dabura", "Shenron",
+        "King Kai", "Supreme Kai", "Kibito", "Gotenks", "Vegito", "Gogeta", "Caulifla", "Kale",
+        "Cabba", "Frost", "Basil", "Bergamo", "Lavender"
+    )
 
         LazyColumn {
-              items(20){ index ->
-                  MyListItem(heroes[index])
+              items(heroes.size){ hero ->
+                  MyListItem(heroes[hero])
               }
         }
 
@@ -38,7 +44,7 @@ val heroes = List(50) {
 @Composable
 fun MyListItem(text: String, modifier: Modifier = Modifier ){
 
-    Card(modifier= Modifier.fillMaxWidth().padding(8.dp), shape = Shapes().extraLarge) {
+    Card(modifier= Modifier.padding(8.dp), shape = Shapes().extraLarge) {
         Row(Modifier.background(Color.Cyan).fillMaxSize(), verticalAlignment = Alignment.CenterVertically){
             Image(painter = painterResource(id = R.drawable.ic_launcher_foreground),
                 contentDescription = "Image Example")

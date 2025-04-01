@@ -6,12 +6,15 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.keepcoding.androidsuperpoderes.ui.theme.AndroidSuperpoderesTheme
+import com.keepcoding.androidsuperpoderes.ui.theme.HeroLisView
 import com.keepcoding.androidsuperpoderes.ui.theme.HoustonScreen
 import com.keepcoding.androidsuperpoderes.ui.theme.HoustonScreen2
 import com.keepcoding.androidsuperpoderes.ui.theme.Login
@@ -22,7 +25,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AndroidSuperpoderesTheme {
-                Login()
+
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    Scaffold(modifier = Modifier.fillMaxSize()) {
+                        HeroLisView(Modifier.padding(it))
+                    }
+
+                }
+
             }
         }
     }
